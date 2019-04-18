@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Sign Up</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script type="text/javascript" src="SignUp.js"></script>
+    <link rel="stylesheet" href="css/nav.css">
+    <style>
+        body{
+            color : #000000;
+            background-size: cover;
+            background-image: url("img/slider/wingly.jpg");
+        }
+    </style>
+</head>
+<body style="background-color: rgb(249,250,248); align-content: center">
+<div class="header-area">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 col-sm-12">
+                <nav class="navbar navbar-expand-lg stick">
+                    <a class="navbar-brand page-scroll sticky-logo" href="HomePage.html">
+                        <h1><span>C</span>Ofly</h1>
+                    </a>
+                    <div class="collapse  main-menu navbar-collapse justify-content-end">
+                        <ul class="nav navbar-right navbar-nav">
+                            <li>
+                                <a href="SignIn.html">Sign In</a>
+                            </li>
+                            <li class="active">
+                                <a href="SignUp.html">Sign Up</a>
+                            </li>
+                        </ul>
+                    </div>
+                </nav>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row" style="margin-top:80px;">
+    <div class="container col-6">
+        <div class="card">
+            <h2 class="display-4 text-center">Sign Up</h2>
+            <div class="card-body">
+
+                <div class="form-check-inline radio">
+                    <label><input class="form-check-input" id="homme" type="radio" name="optradio" value="M" checked>Mr</label>
+                </div>
+                <div class="form-check-inline radio">
+                    <label><input class="form-check-input" id="femme" type="radio" name="optradio" value="F">Ms</label>
+                </div>
+                <div class="form-group">
+                    <label>Sign Up as</label>
+                    <SELECT class="form-control" id="typeUser" size="1" onchange="changeForm()">
+                        <OPTION>User</OPTION>
+                        <OPTION>Pilot</OPTION>
+                    </SELECT>
+                </div>
+                <div class="row">
+                    <div class="form-group col">
+                        <label>First Name</label>
+                        <input id="firstname" type="text" class="form-control" placeholder="First Name">
+                    </div>
+                    <div class="form-group col">
+                        <label>Last Name</label>
+                        <input id="lastname" type="text" class="form-control" placeholder="Last Name">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>Email</label>
+                    <input id="email" type="text" class="form-control" placeholder="Email">
+                </div>
+                <div class="form-group">
+                    <label>Password</label>
+                    <input id="password1" type="password" class="form-control" placeholder="Password">
+                </div>
+                <div class="form-group">
+                    <label>Confirm your Password</label>
+                    <input id="password2" type="password" class="form-control" placeholder="Confirm your Password">
+                </div>
+                <div class="form-group">
+                    <label>Birthdate</label>
+                    <input id="dateofbirth" type="date" placeholder="09/01/1996" class="form-control">
+                </div>
+                <div class="form-group">
+                    <label>Phone Number</label>
+                    <input id="phone" type="text" placeholder="+33 612345678" class="form-control">
+                </div>
+                <div id="pilot" style="visibility: hidden;height: 0px;">
+                    <div class="form-group">
+                        <label>Experience</label>
+                        <TEXTAREA id="experience" rows=1 cols=40 placeholder="Tell about your experience" class="form-control"></TEXTAREA>
+                    </div>
+                    <div class="form-group">
+                        <label>Qualification</label>
+                        <TEXTAREA id="qualif" rows=1 cols=40 placeholder="Your qualification" class="form-control"></TEXTAREA>
+                    </div>
+                    <div class="form-group">
+                        <label>Upload your licence</label>
+                        <input id="file" type="file" class="form-control-file">
+                    </div>
+                    <div class="form-group">
+                        <label>Flying Hours</label>
+                        <input id="hours" type="number" placeholder="5" class="form-control">
+                    </div>
+                </div>
+                <div class="form-group" align="center">
+                    <input id="cancel" type="reset" value="Cancel" class="btn btn-secondary mb-2">
+                    <input id="addUser" type="submit" value="Submit" class="btn btn-primary mb-2">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

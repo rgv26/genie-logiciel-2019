@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Add Flight</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script type="text/javascript" src="AddFlight.js"></script>
+    <link rel="stylesheet" href="css/nav.css">
+
+</head>
+<body style="background-color: rgb(249,250,248); align-content: center">
+<div class="header-area">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 col-sm-12">
+                <nav class="navbar navbar-expand-lg stick">
+                    <a class="navbar-brand page-scroll sticky-logo" href="HomePage.html">
+                        <h1><span>C</span>Ofly</h1>
+                    </a>
+                    <div class="collapse  main-menu navbar-collapse justify-content-end">
+                        <ul class="nav navbar-right navbar-nav">
+                            <li>
+                                <a href="SignIn.html">Sign In</a>
+                            </li>
+                            <li class="active">
+                                <a href="SignUp.html">Sign Up</a>
+                            </li>
+                        </ul>
+                    </div>
+                </nav>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row" style="margin-top:70px;">
+    <div class="container col-6">
+        <h1 class="display-4 text-center">Add Flight</h1>
+        <form>
+            <div class="form-group">
+                <label>Departure Airport</label>
+                <SELECT class="form-control" id="departure" size="1" >
+                    <script>airport();</script>
+                </SELECT>
+            </div>
+            <div class="form-group">
+                <label>Arrival Airport</label>
+                <SELECT class="form-control" id="arrival" size="1" >
+                    <script>airport();</script>
+                </SELECT>
+            </div>
+            <script id="plane" type="text/template">
+                <div class="form-group">
+                    <label>Plane</label>
+                    <SELECT class="form-control" name="Plane" size="1" >
+                        <OPTION> <%= Reference %> </OPTION>
+                    </SELECT>
+                    <input type="submit" value="+">
+                </div>
+            </script>
+            <div class="row">
+            <div class="form-group col">
+                <label>Date</label>
+                <input id="date" type="date" class="form-control" name="the_date">
+            </div>
+            <div class="form-group col">
+                <!--<script id="seats" type="text/template">-->
+                <label>Number of seats</label>
+                <input id="seatsInput" type="number" class="form-control" name="seats" placeholder="Example: 8">
+                <!--</script> -->
+            </div>
+                <div class="form-group col">
+                    <label>Price</label>
+                    <input id="price" type="number" name="price" step="any" placeholder="49.99$" class="form-control">
+                </div>
+            </div>
+            <div class="form-group">
+                <label>Choose a time for your flight departure:</label>
+                <input type="time" id="time" class="form-control">
+
+            </div>
+            <div class="form-group">
+                <label>Choose a time for your flight duration:</label>
+                <div class="row" style="text-align:center">
+                    <div class="col">
+                        <label>Hour</label>
+                        <SELECT id="hour">
+                            <script>time(0,50);</script>
+                        </SELECT>
+                    </div>
+                    <div class="col" style="text-align:center">
+                        <label>Minute</label>
+                        <SELECT id="minute">
+                            <script>time(0,59);</script>
+                        </SELECT>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label>Appointment Address</label>
+                <TEXTAREA id="address" rows=1 cols=40 placeholder="Appointment Address" class="form-control"></TEXTAREA>
+            </div>
+
+            <div class="form-group ">
+                <label>Add an image</label>
+                <input id="file" type="file" class="form-control-file">
+            </div>
+            <br>
+            <div class="form-group" align="center">
+                <input id="cancel" type="reset" value="Cancel" class="btn btn-secondary mb-2">
+                <input id="addFlight" type="submitubmit" value="Submit" class="btn btn-primary mb-2">
+            </div>
+
+        </form>
+    </div>
+</div>
+</body>
+</html>

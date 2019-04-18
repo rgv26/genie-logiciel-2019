@@ -1,0 +1,74 @@
+.sticky-logo h1 {
+    color: #fff;
+    padding: 0;
+    margin: 0;
+    font-size: 36px;
+    font-weight: bold;
+    line-height: 1;
+}
+
+.sticky-logo h1 span {
+    color: #3ec1d5;
+}
+
+.header-area {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: auto;
+    background: rgba(0, 0, 0, 0.40);
+    z-index: 9;
+}
+
+a:hover {
+    color: #3EC1D5;
+    text-decoration: none;
+}
+
+a{
+    color: #ffffff;
+}
+
+.main-menu ul.navbar-nav li {
+    display: inline-block;
+    padding: 0px 13px;
+}
+
+.main-menu ul.navbar-nav li a {
+    background: rgba(0, 0, 0, 0) none repeat scroll 0 0;
+    color: #fff;
+    font-size: 15px;
+    font-weight: 500;
+    padding: 24px 0px;
+    text-transform: capitalize;
+    letter-spacing: 1px;
+}
+
+.main-menu ul.navbar-nav li.active > a::after {
+    border: 1px solid #fff;
+    bottom: 0px;
+    content: "";
+    left: 0;
+    position: absolute;
+    width: 100%;
+}
+
+.main-menu ul.navbar-nav li.active a:hover {
+    background: none;
+    color: #fff;
+}
+
+.main-menu ul.navbar-nav li.active a:focus {
+    color: #fff;
+}
+
+.main-menu ul.navbar-nav li.active a {
+    background: rgba(0, 0, 0, 0) none repeat scroll 0 0;
+    color: #fff;
+    position: relative;
+}
+
+.main-menu ul.navbar-nav li a:hover {
+    color: #3EC1D5;
+}
