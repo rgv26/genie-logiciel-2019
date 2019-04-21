@@ -1,6 +1,8 @@
 package fr.diderot.cofly.dao;
 
 import fr.diderot.cofly.database.Search;
+import fr.diderot.cofly.metier.Pilot;
+import fr.diderot.cofly.metier.User;
 import fr.diderot.cofly.utils.Tuple;
 import java.io.IOException;
 import java.util.Iterator;
@@ -85,8 +87,8 @@ public class ImplementationDAO<V> implements DAO<V> {
 
     public boolean checkEmail(String email) {
         try {
-            return Search.findSimpleQueries(tClass.getSimpleName()
-                    .toLowerCase(), "email", email, tClass).isEmpty();
+            return !Search.findSimpleQueries("user", "email", email, User.class).isEmpty()
+                    || !Search.findSimpleQueries("pilot", "email", email, Pilot.class).isEmpty();
         } catch (IOException ex) {
             ex.printStackTrace();
         }
