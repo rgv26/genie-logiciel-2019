@@ -1,4 +1,3 @@
-
 function changeForm() {
     var x = document.getElementById("typeUser").value;
     if (x === "User") {
@@ -18,8 +17,7 @@ $(function () {
     });
 });
 
-function checkEmail(email)
-{
+function checkEmail(email) {
     var c;
     var b = $.ajax({
         type: "GET",
@@ -67,16 +65,17 @@ $(function () {
 
             return;
         }
-        var birthdate = document.getElementById("dateofbirth").value;
+        var birthDate = document.getElementById("dateofbirth").value;
         var phone = document.getElementById("phone").value;
         //Fin commun
-        alert(firstname + " " + lastname + " " + email + " " + password1 + " " + password2 + " " + birthdate + " " + phone);
+
+        alert(firstname + " " + lastname + " " + email + " " + password1 + " " + password2 + " " + birthDate + " " + phone);
         var x = document.getElementById("typeUser").value;
         if (x === "User") {
             var jsonData = '{ "email": "' + email + '", "password": "' + password1
-                    + '", "firstName": "' + firstname + '" , "lastName": "' + lastname
-                    + '", "sex": "' + sex + '", "birthdate": "' + birthdate
-                    + '", "numTel": "' + phone + '" }';
+                + '", "firstName": "' + firstname + '" , "lastName": "' + lastname
+                + '", "sex": "' + sex + '", "birthDate": "' + birthDate
+                + '", "numTel": "' + phone + '" }';
             console.log(jsonData);
             $.ajax({
                 url: "ws/signup/user",
@@ -104,17 +103,17 @@ $(function () {
                     var base64data = reader.result;
 
                     var jsonData = '{ "email": "' + email
-                            + '", "password": "' + password1
-                            + '", "firstName": "' + firstname
-                            + '" , "lastName": "' + lastname
-                            + '", "sex": "' + sex
-                            + '", "birthdate": "' + birthdate
-                            + '", "numTel": "' + phone
-                            + '", "experience": "' + exp
-                            + '", "qualification": "' + qualif
-                            + '", "licence": "' + base64data
-                            + '", "flyingHours": "' + hours
-                            + '" }';
+                        + '", "password": "' + password1
+                        + '", "firstName": "' + firstname
+                        + '" , "lastName": "' + lastname
+                        + '", "sex": "' + sex
+                        + '", "birthDate": "' + birthDate
+                        + '", "numTel": "' + phone
+                        + '", "experience": "' + exp
+                        + '", "qualification": "' + qualif
+                        + '", "licence": "' + base64data
+                        + '", "flyingHours": "' + hours
+                        + '" }';
                     console.log(jsonData);
                     $.ajax({
                         url: "ws/signup/pilot",

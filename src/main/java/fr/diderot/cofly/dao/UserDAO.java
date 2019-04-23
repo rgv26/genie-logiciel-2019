@@ -1,7 +1,10 @@
 package fr.diderot.cofly.dao;
 
+import fr.diderot.cofly.database.Search;
 import fr.diderot.cofly.metier.User;
 import fr.diderot.cofly.utils.Tuple;
+
+import java.io.IOException;
 import java.util.List;
 import java.util.UUID;
 
@@ -41,8 +44,18 @@ public class UserDAO extends ImplementationDAO<User> {
         return super.create(obj);
     }
 
-    @Override
-    public boolean checkEmail(String email) {
-        return super.checkEmail(email);
+    public Tuple<String, User> findByTagOneElement(String tag, String value) {
+        return super.findByTagOneElement(tag, value);
     }
+
+    @Override
+    public List<Tuple<String, User>> findByTag(String tag, String value) {
+        return super.findByTag(tag, value);
+    }
+
+    @Override
+    public List<Tuple<String, User>> findSimpleQueries(String tag, String value) {
+        return super.findSimpleQueries(tag, value);
+    }
+
 }

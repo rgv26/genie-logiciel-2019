@@ -45,7 +45,7 @@ public class FlightDAO extends ImplementationDAO<Flight> {
 
     public List<Tuple<String, Flight>> checkFly(String departure, String arrival) {
         try {
-            return Search.searchAllFlightWithOutDate(departure, arrival, Flight.class);
+            return Search.searchAllFlightWithOutDate(departure, arrival, tClass);
         } catch (IOException ex) {
             ex.printStackTrace();
         }

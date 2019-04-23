@@ -1,0 +1,12 @@
+Bonjour voici comment faire pour ajouter un objet dans votre localhost :
+
+Tout d'abord le plus simple c'est d'installer IntelliJ cela fait tout pour vous.
+
+Ensuite installer elasticsearch et quand c'est fait lancer elasticsearch c'est votre serveur en gros.
+
+Puis aller dans src/main/java/fr/diderot/cofly/ et exécuter JettyMain.java. 
+
+Regarder comment ca marche et si vous avez des questions demandez sur le groupe WhatsApp.
+
+Ensuite aller sur cette adresse pour voir que vous avez bien ajouter cela a la BDD http://localhost:9200/posts/_search
+ 

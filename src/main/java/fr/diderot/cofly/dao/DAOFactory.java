@@ -9,6 +9,7 @@ public class DAOFactory {
     private static PilotDAO pilotDAO = null;
     private static UserDAO userDAO = null;
 
+
     public static AirfieldDAO getAirfieldDAO() {
         if (airfieldDAO == null) {
             airfieldDAO = new AirfieldDAO();
@@ -50,4 +51,5 @@ public class DAOFactory {
         }
         return userDAO;
     }
+
 }

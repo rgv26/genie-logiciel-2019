@@ -9,9 +9,10 @@ public class User extends Person {
         super();
     }
 
-    public User(String email, byte[] password, String firstName, String lastName,
-            char sex, String birthdate, String numTel) {
-        super(email, password, firstName, lastName, sex, birthdate, numTel);
+    public User(String email, String password, String firstName, String lastName, String birthDate, char sex,
+                String numTel, String profileImage) {
+        super(email, password, firstName, lastName, birthDate, sex, numTel, profileImage);
+
     }
 
     @Override

@@ -1,49 +1,83 @@
 package fr.diderot.cofly.metier;
 
-import java.util.Arrays;
-import java.util.Objects;
-import java.util.UUID;
-import javax.validation.constraints.NotNull;
 import org.codehaus.jackson.map.annotate.JsonSerialize;
+
+import javax.validation.constraints.NotNull;
+import java.util.Objects;
 
 public abstract class Person {
 
     @JsonSerialize(include = JsonSerialize.Inclusion.NON_DEFAULT)
-    protected UUID id;
+    protected long id;
     @NotNull
     @JsonSerialize
     protected String email;
     @NotNull
-    protected byte[] password;
+    protected String password;
     @NotNull
     protected String firstName;
     @NotNull
     protected String lastName;
-    protected char sex;
-    protected String birthdate;
+    protected String profileImage;
+    protected String birthDate;
     protected String numTel;
+    protected char sex;
     protected String token;
+    protected int age;
+
+    public int getAge() {
+        return age;
+    }
+
+    public void setAge(int age) {
+        this.age = age;
+    }
 
     public Person() {
 
     }
 
-    public Person(String email, byte[] password, String firstName,
-            String lastName, char sex, String birthdate, String numTel) {
+    public Person(String email, String password, String firstName, String lastName, String birthDate, char sex,
+            String numTel, String profileImage) {
         this.email = email;
         this.password = password;
         this.firstName = firstName;
         this.lastName = lastName;
+        this.birthDate = birthDate;
         this.sex = sex;
-        this.birthdate = birthdate;
         this.numTel = numTel;
+        this.profileImage = profileImage;
     }
 
-    public UUID getId() {
+    public String getToken() {
+        return token;
+    }
+
+    public void setToken(String token) {
+        this.token = token;
+    }
+
+    public char getSex() {
+        return this.sex;
+    }
+
+    public void setSex(char sex) {
+        this.sex = sex;
+    }
+
+    public String getProfileImage() {
+        return profileImage;
+    }
+
+    public void setProfileImage(String profileImage) {
+        this.profileImage = profileImage;
+    }
+
+    public long getId() {
         return id;
     }
 
-    public void setId(UUID id) {
+    public void setId(long id) {
         this.id = id;
     }
 
@@ -55,11 +89,11 @@ public abstract class Person {
         this.email = email;
     }
 
-    public byte[] getPassword() {
+    public String getPassword() {
         return password;
     }
 
-    public void setPassword(byte[] password) {
+    public void setPassword(String password) {
         this.password = password;
     }
 
@@ -79,22 +113,6 @@ public abstract class Person {
         this.lastName = lastName;
     }
 
-    public char getSex() {
-        return sex;
-    }
-
-    public void setSex(char sex) {
-        this.sex = sex;
-    }
-
-    public String getBirthdate() {
-        return birthdate;
-    }
-
-    public void setBirthdate(String birthdate) {
-        this.birthdate = birthdate;
-    }
-
     public String getNumTel() {
         return numTel;
     }
@@ -103,65 +121,39 @@ public abstract class Person {
         this.numTel = numTel;
     }
 
-    public String getToken() {
-        return token;
+    public String getBirthDate() {
+        return birthDate;
     }
 
-    public void setToken(String token) {
-        this.token = token;
-    }
+    public void setBirthDate(String birthDate) {
 
-    @Override
-    public int hashCode() {
-        int hash = 5;
-        hash = 89 * hash + Objects.hashCode(this.email);
-        hash = 89 * hash + Arrays.hashCode(this.password);
-        hash = 89 * hash + Objects.hashCode(this.firstName);
-        hash = 89 * hash + Objects.hashCode(this.lastName);
-        hash = 89 * hash + this.sex;
-        hash = 89 * hash + Objects.hashCode(this.birthdate);
-        hash = 89 * hash + Objects.hashCode(this.numTel);
-        return hash;
-    }
+        this.birthDate = birthDate;
 
-    @Override
-    public boolean equals(Object obj) {
-        if (this == obj) {
-            return true;
-        }
-        if (obj == null) {
-            return false;
-        }
-        if (getClass() != obj.getClass()) {
-            return false;
-        }
-        final Person other = (Person) obj;
-        if (this.sex != other.sex) {
-            return false;
-        }
-        if (!Objects.equals(this.email, other.email)) {
-            return false;
-        }
-        if (!Objects.equals(this.firstName, other.firstName)) {
-            return false;
-        }
-        if (!Objects.equals(this.lastName, other.lastName)) {
-            return false;
-        }
-        if (!Objects.equals(this.birthdate, other.birthdate)) {
-            return false;
-        }
-        if (!Objects.equals(this.numTel, other.numTel)) {
-            return false;
-        }
-        return Arrays.equals(this.password, other.password);
     }
 
     @Override
     public String toString() {
-        return "email=" + email + ", password=" + Arrays.toString(password) + ", firstName="
-                + firstName + ", lastName=" + lastName + ", sex=" + sex
-                + ", birthdate=" + birthdate + ", numTel=" + numTel;
+        return "email='" + email + '\'' + ", password='" + new String(password) + '\'' + ", firstName='" + firstName
+                + '\'' + ", lastName='" + lastName + '\'' + ", sex=" + sex + (token != null ? '\'' + ", token='" + token : "");
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o)
+            return true;
+        if (o == null || getClass() != o.getClass())
+            return false;
+        Person user = (Person) o;
+        return Objects.equals(email, user.email) && Objects.equals(password, user.password)
+                && Objects.equals(firstName, user.firstName) && Objects.equals(lastName, user.lastName)
+                && Objects.equals(birthDate, user.birthDate) && Objects.equals(numTel, user.numTel)
+                && Objects.equals(sex, user.sex);
+    }
+
+    @Override
+    public int hashCode() {
+
+        return Objects.hash(email, password, firstName, lastName, numTel, sex, birthDate);
+
+    }
 }

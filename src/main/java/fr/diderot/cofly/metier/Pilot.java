@@ -14,14 +14,15 @@ public class Pilot extends Person {
         super();
     }
 
-    public Pilot(String email, byte[] password, String firstName, String lastName,
-            char sex, String birthdate, String numTel) {
-        super(email, password, firstName, lastName, sex, birthdate, numTel);
+
+    public Pilot(String email, String password, String firstName, String lastName,
+                 char sex, String birthdate, String numTel) {
+        super(email, password, firstName, lastName, birthdate, sex, numTel, null);
     }
 
-    public Pilot(String email, byte[] password, String firstName, String lastName,
-            char sex, String birthdate, String numTel, String experience,
-            String qualification, String licence, int flyingHours) {
+    public Pilot(String email, String password, String firstName, String lastName,
+                 char sex, String birthdate, String numTel, String experience,
+                 String qualification, String licence, int flyingHours) {
         this(email, password, firstName, lastName, sex, birthdate, numTel);
         this.experience = experience;
         this.qualification = qualification;

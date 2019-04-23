@@ -29,7 +29,7 @@ $(document).ready(function () {
     $("#signOut").click(function () {
         $.ajax({
             type: "GET",
-            url: "ws/logout/user",
+            url: "ws/logout/p",
             async: false
         }).done(function () {
             location.reload();

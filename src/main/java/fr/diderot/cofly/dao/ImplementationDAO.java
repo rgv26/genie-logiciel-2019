@@ -64,7 +64,12 @@ public class ImplementationDAO<V> implements DAO<V> {
 
     @Override
     public boolean update(UUID id, V obj) {
-        return Search.update(id, obj);
+        try {
+            return Search.update(id, obj);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return false;
     }
 
     @Override
@@ -77,22 +82,28 @@ public class ImplementationDAO<V> implements DAO<V> {
         return false;
     }
 
-    public Tuple<String, V> findByTag(String tag, String value) {
+    public Tuple<String, V> findByTagOneElement(String tag, String value) {
         try {
-            return Search.findByTagOneElement(tag, value, tClass);
+            return  Search.findByTagOneElement(tag, value, tClass);
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
     }
 
-    public boolean checkEmail(String email) {
+    public List<Tuple<String, V>> findByTag(String tag, String value) {
         try {
-            return !Search.findSimpleQueries("user", "email", email, User.class).isEmpty()
-                    || !Search.findSimpleQueries("pilot", "email", email, Pilot.class).isEmpty();
-        } catch (IOException ex) {
-            ex.printStackTrace();
+            return Search.findByTag(tag, value, tClass);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
         }
-        return false;
+    }
+
+    public List<Tuple<String, V>> findSimpleQueries(String tag, String value) {
+        try {
+            return Search.findSimpleQueries(tClass.getSimpleName().toLowerCase(), tag, value, tClass);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
     }
 
     public boolean removeAll() {

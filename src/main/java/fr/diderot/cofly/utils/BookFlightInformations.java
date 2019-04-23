@@ -1,6 +1,7 @@
 package fr.diderot.cofly.utils;
 
 import fr.diderot.cofly.metier.Person;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -33,6 +34,7 @@ public class BookFlightInformations {
     public void setPassengers(List<Person> passengers) {
         this.passengers = passengers;
     }
+
 
     public boolean addPassenger(Person passenger) {
         return passengers.add(passenger);

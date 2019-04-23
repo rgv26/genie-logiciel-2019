@@ -17,8 +17,8 @@ function afficherVol() {
         dataType: "json"
     }).done(function (result) {
         var len = result.length;
+        alert(result[0].seats);
         for (var i = 0; i < len; i++) {
-            var id = result[i].id;
             var seats = result[i].seats;
             var departureAerodrom = result[i].departure;
             var arrivalAerodrom = result[i].arrival;
@@ -36,11 +36,10 @@ function afficherVol() {
                 var tbody = document.querySelector("tbody");
                 var clone = document.importNode(template.content, true);
                 var td = clone.querySelectorAll("td");
-                td[0].textContent = id;
-                td[1].textContent = departureAerodrom;
-                td[2].textContent = arrivalAerodrom;
-                td[3].textContent = price;
-                td[4].textContent = seats;
+                td[0].textContent = departureAerodrom;
+                td[1].textContent = arrivalAerodrom;
+                td[2].textContent = price;
+                td[3].textContent = seats;
                 tbody.appendChild(clone);
             }
         }

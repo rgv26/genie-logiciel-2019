@@ -9,7 +9,6 @@ import static org.junit.Assert.*;
 
 import java.time.LocalDateTime;
 import java.util.Arrays;
-import java.util.Collections;
 import java.util.UUID;
 
 public class ImplementationDAOTest<V> {
@@ -38,11 +37,11 @@ public class ImplementationDAOTest<V> {
         BookingDAO bookingDao = DAOFactory.getBookingDAO();
 
         User user = new User("r.r@gmail.fr",
-                PasswordUtils.getSecurePassword("12345"), "Pierre", "Dibo", 'M',
-                "null", "null");
+                PasswordUtils.getSecurePassword("12345"), "Pierre",
+                "Dibo", null, 'M', "null", "null");
         Pilot pilot = new Pilot("yrcine.hamzacherif@gmail.com",
                 PasswordUtils.getSecurePassword("12345678"), "Yacine",
-                "Hamzacheri", 'M', "null", "null");
+                "Hamzacheri",  'M', "null", "null");
         Aircraft aircraft = new Aircraft("AFR3321", 250, "AT43", "null");
 
 
@@ -51,8 +50,8 @@ public class ImplementationDAOTest<V> {
         assertNotNull(idAircraft = aircraftDao.create(aircraft));
 
         Flight flight = new Flight(idPilot, idAircraft, Airfields.AIRFIELDS[0], 
-        Airfields.AIRFIELDS[0], LocalDateTime.now(), null, 0, 
-        0, 0, Collections.emptyList());
+        Airfields.AIRFIELDS[0], LocalDateTime.now(), null, 0.0,
+        0, 0, "");
 
         assertNotNull(idFlight = flightDao.create(flight));
 
@@ -68,21 +67,52 @@ public class ImplementationDAOTest<V> {
         assertTrue(bookingDao.removeById(UUID.fromString(idBooking)));
     }
 
-    
-
     @Test
     public void addUser() {
         UserDAO dao = DAOFactory.getUserDAO();
         User obj = new User("a4leyxis@gmail.fr",
+                PasswordUtils.getSecurePassword("12345"),
+                "Gregory", "Sav", null, 'M',
+                null, "0766811795");
+        assertNotNull(dao.create(obj));
+    }
+
+    @Test
+    public void addPilot() {
+        PilotDAO dao = DAOFactory.getPilotDAO();
+        Pilot obj = new Pilot("a@gmail.fr",
                 PasswordUtils.getSecurePassword("12345"), "Gregory", "Sav", 'M',
                 null, "0766811795");
         assertNotNull(dao.create(obj));
     }
 
     @Test
+    public void addAircraft() {
+        AircraftDAO dao = DAOFactory.getAircraftDAO();
+        Aircraft obj = new Aircraft("AF104", 3, "AF", null);
+        assertNotNull(dao.create(obj));
+    }
+
+    @Test
+    public void addFlight() {
+        FlightDAO dao = DAOFactory.getFlightDAO();
+        String id = "98aec889-cbae-4d32-ba0b-eb74db1bb95c";
+        Flight obj = new Flight(id, "AF104", Airfields.AIRFIELDS[0], 
+        Airfields.AIRFIELDS[0], LocalDateTime.now(), null, 50, 5, 1, null);
+        assertNotNull(dao.create(obj));
+    }
+
+    @Test
     public void removeUser() {
         UserDAO dao = DAOFactory.getUserDAO();
-        String id = "5b018065-628d-4818-ac13-f56f17bca14f";
+        String id = "a68b9901-dc2c-47d6-be42-37835ac18517";
+        assertTrue(dao.removeById(UUID.fromString(id)));
+    }
+
+    @Test
+    public void removePilot() {
+        PilotDAO dao = DAOFactory.getPilotDAO();
+        String id = "e40e942a-9008-4d06-b26e-8ef2d54038cb";
         assertTrue(dao.removeById(UUID.fromString(id)));
     }
 

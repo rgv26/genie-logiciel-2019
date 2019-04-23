@@ -26,7 +26,7 @@ $(function () {
                 + '", "date": "' + document.getElementById("date").value + ' ' + time
                 + '" , "appointenmtAdress": "' + address + '", "price": ' + price
                 + ', "seats": ' + seat + ', "flightDuration" : "' + flightDuration
-                + '" }';
+                + ', "image": "' + base64data + '" }';
         var reader = new FileReader();
         reader.readAsDataURL(file);
         var base64data = null;
